@@ -29,10 +29,10 @@ ignore-paths=.+\/tests,
              .+\/events,
              .+\/conftest.py,
              .+\/yardi.py,
-             .+\/entities,
+             .+\/user_pdfs,
              .+\/alembic,
              .+\/yardi_routes.py,
-             .+\/entities,
+             .+\/user_pdfs,
              .+\/xml_generators,
 
 

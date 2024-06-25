@@ -13,7 +13,7 @@ stripe.api_key = settings.stripe_api_key
 class StripePayment(BaseModel):
     user_id: str
     user_email: str
-    entity_id: str
+    user_pdf_id: str
     price_id: str
     quantity: int = 1
     mode: str = 'subscription'
@@ -36,7 +36,7 @@ class StripePayment(BaseModel):
                 metadata={
                     'customer_user_id': self.user_id,
                     'customer_email': self.user_email,
-                    'entity_id': self.entity_id,
+                    'user_pdf_id': self.user_pdf_id,
                     'price_id': self.price_id,
                 }
             )

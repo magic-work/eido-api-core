@@ -39,7 +39,7 @@
 #     fulfillment = await StripeFulfillment().fulfill(request=request, signature=stripe_signature)
 
 #     # If the fulfillment is for a dealer subscription, upgrade the user to a dealer here
-#     if fulfillment.entity_id == subscription_options['dealer_yearly']['entity_id'] or fulfillment.entity_id == subscription_options['dealer_monthly']['entity_id']:
+#     if fulfillment.user_pdf_id == subscription_options['dealer_yearly']['user_pdf_id'] or fulfillment.user_pdf_id == subscription_options['dealer_monthly']['user_pdf_id']:
 #         dealer = await Dealer.find_one(Dealer.user_id == fulfillment.user_id)
 #         if not dealer:
 #             dealer = Dealer(user_id=fulfillment.user_id, user_email=fulfillment.user_email)

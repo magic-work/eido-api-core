@@ -43,9 +43,9 @@ class Settings(BaseSettings):
     stripe_endpoint_secret: str = 'whsec_48e47d551c'
     subscription_mode: str = 'subscription'
     yearly_dealer_subscription_price_id: str = 'price_123test'
-    yearly_dealer_subscription_entity_id: str = 'prod_123test'
+    yearly_dealer_subscription_user_pdf_id: str = 'prod_123test'
     monthly_dealer_subscription_price_id: str = 'price_345test'
-    monthly_dealer_subscription_entity_id: str = 'prod_345test  '
+    monthly_dealer_subscription_user_pdf_id: str = 'prod_345test  '
 
     # Sendgrid
     sendgrid_api_key: str = 'test123'

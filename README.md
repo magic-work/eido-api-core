@@ -23,13 +23,13 @@ different types of routes, such as public routes, user-specific routes, or admin
 use dependency injection, chiefly calling the service classes.
 
 There exist some base service classes, which allow some common CRUD logic to be reused, such as
-throwing a HTTP exception when an entity is not found in the database. Some methods can be called
-directly, while others, which might need to specify their schema, will be called from entity
+throwing a HTTP exception when an user_pdf is not found in the database. Some methods can be called
+directly, while others, which might need to specify their schema, will be called from user_pdf
 specific service classes. You'll usually create a service class for each model class that you have,
 but these can be quite minimal if their simple CRUD operations.
 
 You can also add business logic to these service classes (not the base class, but rather the service class
-pertaining to a specific model entity), and call other functions from there.
+pertaining to a specific model user_pdf), and call other functions from there.
 
 The `app/integrations` folder contains wrapper classes for interacting with third-party services, such
 as those for payments (like stripe), notifications (like FCM), or email (like sendgrid). These integration

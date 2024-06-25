@@ -24,3 +24,8 @@ class Video(Media):
     thumbnail_url: str
     created_at: str
     media_type: str = 'video'
+
+
+class PDFDocument(Media):
+    public_id: str
+    media_type: str = 'pdf'

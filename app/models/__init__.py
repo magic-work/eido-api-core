@@ -13,13 +13,13 @@
 ###########################################################
 from beanie import init_beanie
 from motor.motor_asyncio import AsyncIOMotorClient
-from app.models.Entity import Entity
+from app.models.UserPDF import UserPDF
 from app.settings import get_settings
 
 settings = get_settings()
 
 document_models = [
-    Entity
+    UserPDF
 ]
 
 async def initialize_mongodb():

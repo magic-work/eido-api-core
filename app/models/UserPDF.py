@@ -4,17 +4,17 @@ from app.logs import get_logger
 logger = get_logger(__name__)
 
 
-class Entity(MongoModel):
+class UserPDF(MongoModel):
     user_id: str
     name: str
     description: str
 
 
-class EntityCreate(AppBaseModel):
+class UserPDFCreate(AppBaseModel):
     name: str
     description: str
 
 
-class EntityUpdate(AppBaseModel):
+class UserPDFUpdate(AppBaseModel):
     name: str | None = None
     description: str | None = None
