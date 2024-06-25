@@ -1,0 +1,15 @@
+*.py[cod]
+*.log
+*.jar
+Pipfile.lock
+__pycache__
+*/__pycache__/*
+.pytest_cache
+Thumbs.db
+.python*_env
+.env
+.env*
+.venv
+.pytest_cache
+.coverage
+firebase_config.json

@@ -1,0 +1,44 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "FastAPI",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "uvicorn",
+      "args": [
+        "app.main:app",
+      ],
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}",
+      },
+      "jinja": true,
+      "justMyCode": true
+    },
+    {
+      "name": "Pytest",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "pytest",
+      "justMyCode": true,
+      "args": [
+        "-s",
+        "app/tests/test_entities.py",
+      ],
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}",
+      },
+    },
+    {
+      "name": "Current File",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${file}",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}",
+      }
+    }
+  ]
+}
