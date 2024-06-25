@@ -7,8 +7,7 @@ from cloudinary.utils import cloudinary_url
 from fastapi import HTTPException, status
 from app.logs import get_logger
 from app.settings import get_settings
-from app.models.Media import Image, Video
-
+from app.models.Media import Image, Video, PDFDocument
 logger = get_logger(__name__)
 settings = get_settings()
 
@@ -25,7 +24,7 @@ class CloudinaryService:
     def __init__(self, file):
         self.file = file
 
-    def upload_to_cloudinary(self) -> None:
+    def upload_media(self) -> None:
         try:
             return self._upload_image()
         except Error:
@@ -37,6 +36,9 @@ class CloudinaryService:
         except Exception as e:
             logger.error("Unable to upload media: %s", e)
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="There was a problem uploading the media: {e}")
+
+    def upload_pdf_to_cloudinary(self) -> None:
+        return self._upload_pdf()
 
     def _upload_image(self) -> None:
         response = cloudinary_upload(self.file, folder=settings.cloudinary_folder)
@@ -68,6 +70,19 @@ class CloudinaryService:
             hls_playback_url=response.get('playback_url').replace('/video/upload/', '/video/upload/e_volume:mute/'),
             created_at=response.get('created_at'),
             thumbnail_url=self._get_video_thumbnail(url)
+        )
+
+    def _upload_pdf(self) -> None:
+        response = cloudinary_upload(self.file, resource_type='raw', folder=settings.cloudinary_folder)
+        if not response.get('public_id'):
+            logger.error("Unable to upload pdf: %s", str(response))
+            raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Unable to upload pdf (no public id)")
+        public_id = response.get('public_id')
+        url, _ = cloudinary_url(public_id)
+        return PDFDocument(
+            media_type='pdf',
+            public_url= cloudinary_url(url),
+            public_id=response.get('public_id'),
         )
 
     def _get_video_thumbnail(self, url) -> str:

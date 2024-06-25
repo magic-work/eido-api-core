@@ -9,14 +9,14 @@ class Settings(BaseSettings):
     """
     # Pydantic configuration
     model_config = SettingsConfigDict(
-        env_file='../deployments/.env.fastapi-template',
+        env_file='../../deployments/.env.eido',
         extra='allow',
         env_file_encoding='utf-8'
     )
 
     # General
-    app_title: str = 'FastAPI template'
-    app_description: str = 'FastAPI template API'
+    app_title: str = 'Eido'
+    app_description: str = 'Eido API'
     log_level: str = 'INFO'
     slack_webhook_url: str | None = None
     root_path: str = ''   # The Dockerfile might set this
@@ -37,15 +37,6 @@ class Settings(BaseSettings):
     cloudinary_api_key: str = 'test234'
     cloudinary_api_secret: str = 'test456'
     cloudinary_folder: str = ''
-
-    # Payments
-    stripe_api_key: str = 'sk_test_1234567890'
-    stripe_endpoint_secret: str = 'whsec_48e47d551c'
-    subscription_mode: str = 'subscription'
-    yearly_dealer_subscription_price_id: str = 'price_123test'
-    yearly_dealer_subscription_user_pdf_id: str = 'prod_123test'
-    monthly_dealer_subscription_price_id: str = 'price_345test'
-    monthly_dealer_subscription_user_pdf_id: str = 'prod_345test  '
 
     # Sendgrid
     sendgrid_api_key: str = 'test123'

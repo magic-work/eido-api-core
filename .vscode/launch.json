@@ -23,7 +23,7 @@
       "justMyCode": true,
       "args": [
         "-s",
-        "app/tests/test_entities.py",
+        "app/tests/test_patients.py",
       ],
       "env": {
         "PYTHONPATH": "${workspaceFolder}",

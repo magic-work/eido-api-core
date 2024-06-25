@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "fastapi-template"
+name = "eido"
 version = "0.1.0"
 description = ""
 authors = ["John C. Kealy <johnckealy.dev@gmail.com>"]
@@ -23,6 +23,9 @@ aiofiles = "^23.2.1"
 python-slugify = "^8.0.4"
 fastapi-pagination = "^0.12.25"
 sendgrid = "^6.11.0"
+pydantic = {extras = ["dotenv"], version = "^2.7.4"}
+pydantic-settings = "^2.3.4"
+mongomock-motor = "^0.0.30"
 
 [build-system]
 requires = ["poetry-core"]

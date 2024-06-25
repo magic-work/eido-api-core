@@ -3,8 +3,7 @@ from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.exceptions import RequestValidationError
 from firebase_admin import credentials as firebase_credentials, initialize_app as init_firebase
-from app.routers.user import user_pdfs
-from app.routers.admin import user_pdfs_admin
+from app.routers import patients
 from app.settings import get_settings
 from app.middleware import handle_uncaught_exceptions, handle_validation_error
 from app.routers import auth
@@ -40,10 +39,7 @@ async def validation_exception_handler(request: Request, exc: RequestValidationE
 
 
 # User routes
-app.include_router(user_pdfs.router)
-
-# Admin routes
-app.include_router(user_pdfs_admin.router)
+app.include_router(patients.router)
 
 # Auth routes
 app.include_router(auth.router)

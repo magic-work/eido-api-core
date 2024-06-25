@@ -1116,6 +1116,20 @@ packaging = "*"
 sentinels = "*"
 
 [[package]]
+name = "mongomock-motor"
+version = "0.0.30"
+description = "Library for mocking AsyncIOMotorClient built on top of mongomock."
+optional = false
+python-versions = ">=3.6"
+files = [
+    {file = "mongomock_motor-0.0.30-py3-none-any.whl", hash = "sha256:5eb41488ce5825ebf1a1ddc90c6ff2c870b2d8506bd1096790408f53068f0ca6"},
+    {file = "mongomock_motor-0.0.30.tar.gz", hash = "sha256:7977413755f70c7ca306e407f5e0d1e49dfa428ce6f2551b097f4db59f8c285b"},
+]
+
+[package.dependencies]
+mongomock = ">=3.23.0,<5.0.0"
+
+[[package]]
 name = "motor"
 version = "3.4.0"
 description = "Non-blocking MongoDB driver for Tornado or asyncio"
@@ -1468,6 +1482,25 @@ files = [
 
 [package.dependencies]
 typing-extensions = ">=4.6.0,<4.7.0 || >4.7.0"
+
+[[package]]
+name = "pydantic-settings"
+version = "2.3.4"
+description = "Settings management using Pydantic"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "pydantic_settings-2.3.4-py3-none-any.whl", hash = "sha256:11ad8bacb68a045f00e4f862c7a718c8a9ec766aa8fd4c32e39a0594b207b53a"},
+    {file = "pydantic_settings-2.3.4.tar.gz", hash = "sha256:c5802e3d62b78e82522319bbc9b8f8ffb28ad1c988a99311d04f2a6051fca0a7"},
+]
+
+[package.dependencies]
+pydantic = ">=2.7.0"
+python-dotenv = ">=0.21.0"
+
+[package.extras]
+toml = ["tomli (>=2.0.1)"]
+yaml = ["pyyaml (>=6.0.1)"]
 
 [[package]]
 name = "pygments"
@@ -2326,4 +2359,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "3.11.8"
-content-hash = "ecd78d769da9dcafc4ff4bd1b5c3cec11f064d74df484c6ac4f5344089a81ea4"
+content-hash = "27b05672690fcef15acb3a61cc8a2ca969f5e192f2e116f33d18133476afb31d"
