@@ -12,7 +12,7 @@ settings = get_settings()
 router = APIRouter(
     prefix='/pdf',
     tags=['PDF documents'],
-    # dependencies=[Depends(get_current_user)],
+    dependencies=[Depends(get_current_user)],
 )
 
 

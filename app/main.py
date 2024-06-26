@@ -14,12 +14,11 @@ settings = get_settings()
 logger = get_logger(__name__)
 
 
-@asynccontextmanager# User routes
+@asynccontextmanager
 
 async def lifespan(app: FastAPI): # pylint: disable=unused-argument
     init_firebase(firebase_credentials.Certificate(settings.firebase_config))
     await initialize_mongodb()
-    logger.info("Emails are %s", "enabled" if not settings.disable_email else "disabled")
     yield
 
 
