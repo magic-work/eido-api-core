@@ -23,7 +23,7 @@ COPY ./app /code/app
 ENV DOCKER_PATHS=true
 
 # Set the internal file paths in the app to the ones used by docker
-ENV ROOT_PATH=/v1
+ENV ROOT_PATH=/eido
 
 # Set the command to run the application
 CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
