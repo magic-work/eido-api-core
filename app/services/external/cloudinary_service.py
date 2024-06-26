@@ -7,7 +7,7 @@ from cloudinary.utils import cloudinary_url
 from fastapi import HTTPException, status
 from app.logs import get_logger
 from app.settings import get_settings
-from app.models.Media import Image, Video, PDFDocument
+from app.models.Media import Image, Video, PDF
 logger = get_logger(__name__)
 settings = get_settings()
 
@@ -37,7 +37,7 @@ class CloudinaryService:
             logger.error("Unable to upload media: %s", e)
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="There was a problem uploading the media: {e}")
 
-    def upload_pdf_to_cloudinary(self) -> None:
+    def upload_pdf(self) -> None:
         return self._upload_pdf()
 
     def _upload_image(self) -> None:
@@ -78,11 +78,11 @@ class CloudinaryService:
             logger.error("Unable to upload pdf: %s", str(response))
             raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Unable to upload pdf (no public id)")
         public_id = response.get('public_id')
-        url, _ = cloudinary_url(public_id)
-        return PDFDocument(
+        url, _ = cloudinary_url(public_id, resource_type='raw')
+        return PDF(
             media_type='pdf',
-            public_url= cloudinary_url(url),
-            public_id=response.get('public_id'),
+            public_url=url,
+            public_id=public_id
         )
 
     def _get_video_thumbnail(self, url) -> str:

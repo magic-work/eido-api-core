@@ -26,6 +26,6 @@ class Video(Media):
     media_type: str = 'video'
 
 
-class PDFDocument(Media):
+class PDF(Media):
     public_id: str
     media_type: str = 'pdf'

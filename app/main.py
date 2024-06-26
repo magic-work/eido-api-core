@@ -6,7 +6,7 @@ from firebase_admin import credentials as firebase_credentials, initialize_app a
 from app.routers import patients
 from app.settings import get_settings
 from app.middleware import handle_uncaught_exceptions, handle_validation_error
-from app.routers import auth
+from app.routers import auth, pdf
 from app.models import initialize_mongodb
 from app.logs import get_logger
 
@@ -38,8 +38,6 @@ async def validation_exception_handler(request: Request, exc: RequestValidationE
     return await handle_validation_error(request, exc)
 
 
-# User routes
 app.include_router(patients.router)
-
-# Auth routes
 app.include_router(auth.router)
+app.include_router(pdf.router)
