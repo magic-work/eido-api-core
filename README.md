@@ -1,7 +1,6 @@
 # EIDO example dashboard
 
 
-
 ## Database
 
 This application uses MongoDB as a database, and makes use of [Beanie](https://beanie-odm.dev)
@@ -35,7 +34,6 @@ The `app/integrations` folder contains wrapper classes for interacting with thir
 as those for payments (like stripe), notifications (like FCM), or email (like sendgrid). These integration
 classes will generally be called in the service layer. Technically, these are also services, so they are
 called as such. They reside in their own folder just to indicate
-
 
 
 ## Middleware

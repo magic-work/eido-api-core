@@ -20,7 +20,7 @@ class Settings(BaseSettings):
     log_level: str = 'INFO'
     slack_webhook_url: str | None = None
     root_path: str = ''   # The Dockerfile might set this
-    cors_origins: list[str] = ['http://localhost:3000', 'http://localhost:5173']
+    cors_origin: str = 'http://localhost:5173'
     require_verified_email: bool = False
 
     # Database
