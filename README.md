@@ -1,4 +1,4 @@
-# FastAPI Template
+# EIDO example dashboard
 
 
 
